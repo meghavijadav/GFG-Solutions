@@ -35,10 +35,7 @@ public class Main {
 class Solution {
     int findMaximum(int[] arr, int n) {
         // code here
-        //Sort the array 
-        //return the number on the last index
-        
         Arrays.sort(arr);
-        return arr[n - 1];
+        return arr[n-1];
     }
 }
