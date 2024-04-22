@@ -32,26 +32,17 @@ class GFG {
 // User function Template for Java
 
 class Solution {
-    int minRow(int N, int M, int A[][]) {
+    int minRow(int n, int m, int a[][]) {
         // code here
-        //Instead of counting minimum number of 1s
-        //We can count maximum number of 0s
-        //Take count = 0
-        //Max = 0
-        //index = 0
-        //If a row has lets say same number of 0s then return the row you scanned first
-        //Hence if count > max then max = count and index = i
-        //return index+ 1
-        
         int max = 0;
  
         int index = 0;
         
         
-        for(int i = 0; i < N ; i++){
+        for(int i = 0; i < n ; i++){
             int count = 0;
-            for(int j = 0; j < M ; j++){
-                if (A[i][j] == 0){
+            for(int j = 0; j < m ; j++){
+                if (a[i][j] == 0){
                     count++;
                 }
                 if(count > max){
