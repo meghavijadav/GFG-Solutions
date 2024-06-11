@@ -35,27 +35,30 @@ class Driverclass
 class Solution
 {
     //Function to check if brackets are balanced or not.
-    static boolean ispar(String x)
+    static boolean ispar(String str)
     {
         // add your code here
-        Stack<Character> stack = new Stack<>();
-        
-        for (char c : x.toCharArray()) {
-            if (c == '(' || c == '{' || c == '[') {
-                stack.push(c);
-            } else if (c == ')' || c == '}' || c == ']') {
-                if (stack.isEmpty() || !isMatchingPair(stack.pop(), c)) {
+         Stack<Character> s = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            if(ch == '(' || ch == '{' || ch == '[' ){
+                s.push(ch);
+            }else{
+                if (s.isEmpty()){
                     return false;
                 }
+                if ((s.peek() == '(' && ch == ')') || (s.peek() == '{' && ch == '}') || (s.peek() == '[' && ch == ']')) {
+                    s.pop();
+                }else{
+                    return false;
+                }
+
             }
         }
-
-        return stack.isEmpty();
-    }
-    
-    static boolean isMatchingPair(char character1, char character2) {
-        return (character1 == '(' && character2 == ')') ||
-               (character1 == '{' && character2 == '}') ||
-               (character1 == '[' && character2 == ']');
+        if(s.isEmpty()){
+            return true;
+        }
+        return false;
     }
 }
