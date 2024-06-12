@@ -47,28 +47,37 @@ class GfG {
 // } Driver Code Ends
 
 
-class MyStack {
+
+class MyStack
+{
     int top;
-    int arr[] = new int[1000];
+	int arr[] = new int[1000];
+	int n = arr.length;
 
-    MyStack() {
-        top = -1;
-    }
-
-    // Function to push an integer into the stack.
-    void push(int a) {
-        if (top < 999) {
-            arr[++top] = a;
+    MyStack()
+	{
+		top = -1;
+	}
+	
+	//Function to push an integer into the stack.
+    void push(int a)
+	{
+	    // Your code here
+	    if(top >= 999){
+	        return;
+	    }
+	    arr[++top] = a; 
+	    n++;
+	} 
+	
+    //Function to remove an item from top of the stack.
+	int pop()
+	{
+        // Your code here
+        if(top < 0){
+            return -1;
         }
-    }
-
-    // Function to remove an item from the top of the stack.
-    int pop() {
-        if (top >= 0) {
-            int poppedElement = arr[top];
-            top--;
-            return poppedElement;
-        }
-        return -1; // Return -1 to indicate that the stack is empty.
-    }
+        n--;
+        return arr[top--];
+	}
 }
